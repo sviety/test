@@ -1,0 +1,22 @@
+<html>
+<head>
+  <script type="text/javascript"
+      src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js">
+  </script>
+</head>
+<body>
+  <cast-media-player id="player"></cast-media-player>
+  <style>
+  #player {
+    --splash-image: url('ic_splash_logo.png');
+    --background-image: linear-gradient(119deg, #3c58c5, #4583c2 50%, #4dc8eb);
+    --progress-color: rgb(61, 193, 236);
+    --logo-image: url('ic_splash_logo.png');
+    --watermark-image: url('watermark_vod.png');
+  }
+</style>
+  <script>
+    cast.framework.CastReceiverContext.getInstance().start();
+  </script>
+</body>
+</html>
