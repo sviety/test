@@ -20,9 +20,6 @@
     const playbackConfig = new cast.framework.PlaybackConfig();
     // Customize the license url for playback
     // playbackConfig.licenseUrl = 'http://widevine/yourLicenseServer';
-    playbackConfig.licenseRequestHandler = requestInfo => {
-        requestInfo.withCredentials = true;
-    };
     context.start({playbackConfig: playbackConfig});
 
     // Update playback config licenseUrl according to provided value in load request.
@@ -30,6 +27,9 @@
         if (loadRequest.media.customData && loadRequest.media.customData.licenseUrl) {
             console.log('License url: '+loadRequest.media.customData.licenseUrl);
             playbackConfig.licenseUrl = loadRequest.media.customData.licenseUrl;
+            playbackConfig.licenseRequestHandler = requestInfo => {
+                requestInfo.withCredentials = true;
+            };
         }
         return playbackConfig;
     });
