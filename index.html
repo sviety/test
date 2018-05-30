@@ -25,12 +25,10 @@
 
     // Update playback config licenseUrl according to provided value in load request.
     context.getPlayerManager().setMediaPlaybackInfoHandler((loadRequest, playbackConfig) => {
+        console.log("Media custom data: " + loadRequest.media.customData);
         // if (loadRequest.media.customData && loadRequest.media.customData.licenseUrl) {
-        //     console.log('License url: '+loadRequest.media.customData.licenseUrl);
+        //     console.log('License url: ' + loadRequest.media.customData.licenseUrl);
         //     playbackConfig.licenseUrl = loadRequest.media.customData.licenseUrl;
-        //     playbackConfig.licenseRequestHandler = requestInfo => {
-        //         requestInfo.withCredentials = true;
-        //     };
         // }
         playbackConfig.licenseUrl = 'https://proxy.uat.widevine.com/proxy?provider=widevine_test';
         return playbackConfig;
