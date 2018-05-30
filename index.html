@@ -18,8 +18,9 @@
 <script>
     const context = cast.framework.CastReceiverContext.getInstance();
     const playbackConfig = new cast.framework.PlaybackConfig();
-    // Customize the license url for playback
-    // playbackConfig.licenseUrl = 'http://widevine/yourLicenseServer';
+
+    console.log('Chromecast starts')
+
     context.start({playbackConfig: playbackConfig});
 
     // Update playback config licenseUrl according to provided value in load request.
